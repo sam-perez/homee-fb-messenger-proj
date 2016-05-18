@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sam-perez/homee-fb-messenger-proj#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.5",
     "express": "^4.13.4"
   }
 }
