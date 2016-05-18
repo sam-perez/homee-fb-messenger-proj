@@ -1,0 +1,22 @@
+{
+  "name": "homee-fb-messenger-proj",
+  "version": "1.0.0",
+  "description": "Sam Perez's submission for the homee fb messenger project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-perez/homee-fb-messenger-proj.git"
+  },
+  "author": "Sam Perez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sam-perez/homee-fb-messenger-proj/issues"
+  },
+  "homepage": "https://github.com/sam-perez/homee-fb-messenger-proj#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
