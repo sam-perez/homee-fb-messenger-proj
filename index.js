@@ -4,6 +4,7 @@ const FB_MESSENGER_VERIFY_TOKEN = '0a30d0b17b8349d299e98d244c67795e';
 const bodyParser = require('body-parser');
 const http = require('http');
 const express = require('express');
+const messageStream = require('./messageStream').createMessageStreamHandler();
 const request = require('request');
 
 const router = express();
@@ -54,6 +55,11 @@ router.post('/webhook/', function (req, res) {
       const text = event.message.text;
       // Handle a text message from this sender
       console.log('Received a message: ' + text);
+
+      messageStream.processMessage({
+        facebookId: sender,
+        text
+      });
 
       sendTextMessage(sender, text);
     }

@@ -62,7 +62,8 @@ const createFileSystemConversationStateStore = () => {
   const getDefaultConversationState = (facebookId) => {
       return Immutable.fromJS({
         facebookId: facebookId,
-        answers: []
+        answers: [],
+        activityLog: [],
       });
   };
 
@@ -105,11 +106,14 @@ const createFileSystemConversationStateStore = () => {
 
         const conversationFileName = getConversationPath(facebookId);
 
-        writeFile(conversationFileName, JSON.stringify(conversationState))
+        writeFile(
+          conversationFileName,
+          JSON.stringify(conversationState, null, 2)
+        )
           .retry(3)
           .finally(() => {
              // empty the cache
-             delete conversationFileName[facebookId];
+             delete cachedConversationStates[facebookId];
           })
           // subscribe to the observable to kick things off
           .subscribe();
